@@ -50,5 +50,3 @@ vim.keymap.set("n", "<C-p>", builtin.find_files, {})
 	-- file tree
 vim.keymap.set("n", "<C-s>", ":Neotree toggle<CR>")
 
--- Thema instellen
-vim.cmd.colorscheme("tokyonight")
