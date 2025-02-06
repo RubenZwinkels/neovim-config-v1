@@ -13,4 +13,4 @@ return {
 			indent = { enable = true },
 		})
 	end
-},
+}
