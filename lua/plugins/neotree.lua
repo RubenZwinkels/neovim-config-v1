@@ -6,7 +6,7 @@ return	{
 		"nvim-tree/nvim-web-devicons", -- Not strictly required, but recommended
 		"MunifTanjim/nui.nvim",
 	},
-	config = funtion()
+	config = function()
 
 end
 },
