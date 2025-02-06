@@ -32,21 +32,4 @@ vim.g.maplocalleader = "\\"
 -- Setup lazy.nvim
 require("lazy").setup("plugins")
 
--- Configuratie voor Treesitter
-local config = require("nvim-treesitter.configs")
-config.setup({
-  ensure_installed = {
-    "python", "c", "css", "csv", "dockerfile", "html", "java",
-    "sql", "yaml", "json", "lua", "javascript"
-  },
-  highlight = { enable = true },
-  indent = { enable = true },
-})
-
-	-- Keybindings
--- telescope
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-	-- file tree
-vim.keymap.set("n", "<C-s>", ":Neotree toggle<CR>")
 
