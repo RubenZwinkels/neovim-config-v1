@@ -5,3 +5,4 @@ vim.o.softtabstop = 4        -- Backspace werkt correct met tabs als 4 spaces
 vim.o.smarttab = true        -- Zorgt ervoor dat tab-toets rekening houdt met shiftwidth
 vim.o.number = true
 vim.opt.relativenumber = true
+vim.o.showmode = false		-- zodat het niet dubbel staat onder lualine
