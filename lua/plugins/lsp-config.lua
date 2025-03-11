@@ -15,7 +15,7 @@ return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local canibilities = require("cmp_nvim_lsp").default_capabilities()
+      local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require "lspconfig"
       local servers = require "lsp_servers"
       for i, server in ipairs(servers) do
