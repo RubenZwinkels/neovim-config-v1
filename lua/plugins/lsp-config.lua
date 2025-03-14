@@ -28,6 +28,7 @@ return {
       vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<C-.>", vim.lsp.buf.code_action, {})
 			vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {})
+			vim.api.nvim_set_keymap('n', '<leader>lc', 'gcc', { noremap = false, silent = true })
 		end,
   },
 }

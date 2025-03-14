@@ -11,6 +11,7 @@ return {
         d = { vim.lsp.buf.definition, "Go to Definition" },
         r = { vim.lsp.buf.rename, "Rename Symbol" },
         f = { vim.lsp.buf.format, "Format Code" },
+				c = { "gcc", "Comment Line" },
       },
       t = {
         name = "Telescope",
