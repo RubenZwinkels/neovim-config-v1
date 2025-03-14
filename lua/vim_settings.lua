@@ -13,11 +13,17 @@ vim.keymap.set("n", "<C-j>", "<C-w>j", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-k>", "<C-w>k", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-l>", "<C-w>l", { noremap = true, silent = true })
 
+-- splits groter en kleiner maken
+
+vim.keymap.set("n", "<C-=>", "<cmd>vertical resize +10<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-->", "<cmd>vertical resize -10<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-=>", "<cmd>resize +10<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "<C-S-->", "<cmd>resize -10<CR>", { noremap = true, silent = true })
 -- NOTE: Ensures that when exiting NeoVim, Zellij returns to normal mode
-vim.api.nvim_create_autocmd("VimLeave", {
-    pattern = "*",
-    command = "silent !zellij action switch-mode normal"
-})
+--vim.api.nvim_create_autocmd("VimLeave", {
+--    pattern = "*",
+--    command = "silent !zellij action switch-mode normal"
+--})
 
 -- vaste macros
 vim.cmd('let @a = "gg0VGy"') --yank all
