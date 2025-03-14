@@ -6,4 +6,5 @@ return {
   "jdtls", -- Java
 	"ts_ls",
 	"eslint",
+	"html",
 }
