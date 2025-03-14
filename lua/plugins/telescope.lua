@@ -6,11 +6,12 @@ return {
 	config = function()
 		local builtin = require("telescope.builtin")
 		vim.keymap.set("n", "<leader>tf", builtin.find_files, {})
-		vim.keymap.set("n", "<leader>en", function()
+		vim.keymap.set("n", "<leader>tn", function()
 			require('telescope.builtin').find_files {
 				cwd = vim.fn.stdpath("config")
 				}
 			end)
+		vim.keymap.set("n", "<leader>th", builtin.help_tags, {})
 	end
 	},
 	{

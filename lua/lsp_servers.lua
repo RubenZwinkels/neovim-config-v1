@@ -4,4 +4,6 @@ return {
   "pyright", -- volledige ondersteuning python
   "clangd", -- C
   "jdtls", -- Java
+	"ts_ls",
+	"eslint",
 }

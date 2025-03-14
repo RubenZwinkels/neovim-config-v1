@@ -10,14 +10,12 @@ return {
         h = { vim.lsp.buf.hover, "Hover Documentation" },
         d = { vim.lsp.buf.definition, "Go to Definition" },
         r = { vim.lsp.buf.rename, "Rename Symbol" },
-      },
-      g = {
-        name = "General",
         f = { vim.lsp.buf.format, "Format Code" },
       },
       t = {
         name = "Telescope",
         f = { require("telescope.builtin").find_files, "Find Files" },
+				n = { require("telescope.builtin").find_files, "FF NeoVim config" },
       },
     }, { prefix = "<leader>" })
 
