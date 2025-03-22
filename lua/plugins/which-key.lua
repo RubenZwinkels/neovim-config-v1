@@ -20,7 +20,7 @@ return {
 			},
 			g = {
 				name = "Git",
-				d = { "Gitsigns preview_hunk<CR>", "Preview diff" },
+				d = { ":Gitsigns preview_hunk<CR>", "Show git diff" },
 			},
 		}, { prefix = "<leader>" })
 
