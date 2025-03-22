@@ -7,4 +7,5 @@ return {
 	"ts_ls",
 	"eslint",
 	"html",
+	"volar",
 }
