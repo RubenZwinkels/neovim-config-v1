@@ -7,14 +7,15 @@ return {
             local telescope = require("telescope")
             local actions = require("telescope.actions")
             local action_state = require("telescope.actions.state")
+            local harpoon = require("harpoon")
 
-            local function delete_selected_entry(prompt_bufnr)
-                local entry = action_state.get_selected_entry()
-                if entry then
-                    -- Verwijder het item (afhankelijk van de context)
-                    print("Item verwijderd:", entry.value)
-                    actions.close(prompt_bufnr)
+            local function delete_harpoon_entry(prompt_bufnr)
+                local selection = action_state.get_selected_entry()
+                if selection then
+                    harpoon:list():remove(selection.index)
                 end
+                actions.close(prompt_bufnr)
+                require("telescope.builtin").harpoon_marks() -- Direct heropenen voor visuele update
             end
 
             -- Basis keybinds voor Telescope
@@ -27,17 +28,16 @@ return {
 
             -- Voeg delete functionaliteit toe aan Telescope
             telescope.setup({
-                defaults = {
-                    mappings = {
-                        i = {
-                            ["<C-d>"] = delete_selected_entry, -- Verwijder met Ctrl + D in insert mode
-                        },
-                        n = {
-                            ["d"] = delete_selected_entry, -- Verwijder met 'd' in normal mode
-                        },
-                    },
-                },
+                extensions = {
+                    harpoon = {
+                        mappings = {
+                            i = { ["<C-d>"] = delete_harpoon_entry },
+                            n = { ["d"] = delete_harpoon_entry },
+                        }
+                    }
+                }
             })
+            require("telescope").load_extension("harpoon")
         end,
     },
     {
