@@ -11,8 +11,6 @@ return {
     local dapui = require("dapui")
     local mason_dap = require("mason-nvim-dap")
 
-		require("dapui").setup()
-
     -- Mason DAP automatisch installeren
     mason_dap.setup({
       ensure_installed = { "codelldb" },
