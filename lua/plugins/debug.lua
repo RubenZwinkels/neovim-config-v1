@@ -59,5 +59,11 @@ return {
     vim.keymap.set("n", "<leader>dr", function() dap.repl.open() end)
     vim.keymap.set("n", "<leader>dl", function() dap.run_last() end)
     vim.keymap.set({ "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end)
+
+    -- Debugging stoppen
+    vim.keymap.set("n", "<leader>dq", function() 
+      dap.terminate()
+      dapui.close()
+    end)
   end,
 }

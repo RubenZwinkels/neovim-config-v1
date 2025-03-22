@@ -35,6 +35,7 @@ return {
                 r = { function() dap.repl.open() end, "Open REPL" },
                 l = { function() dap.run_last() end, "Run Last" },
                 h = { function() require("dap.ui.widgets").hover() end, "Hover Debug Info" },
+								q = {	function() dap.terminate() end, "Quit"	},
             }
         }, { prefix = "<leader>" })
 
