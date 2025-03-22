@@ -1,16 +1,20 @@
 return {
-  "ThePrimeagen/harpoon",
-  dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
-  config = function()
-    local harpoon = require "harpoon"
-    local harpoon_telescope = require "config.harpoon_telescope"
+	"ThePrimeagen/harpoon",
+	dependencies = { "nvim-lua/plenary.nvim", "nvim-telescope/telescope.nvim" },
+	config = function()
+		local harpoon = require("harpoon")
+		local harpoon_mark = require("harpoon.mark")
+		local harpoon_ui = require("harpoon.ui")
+		local telescope = require("telescope")
 
-    harpoon.setup()
+		telescope.load_extension("harpoon")
 
-    vim.keymap.set("n", "<leader>ha", function() harpoon:list():append() end, { desc = "Harpoon add file" })
-    vim.keymap.set("n", "<leader>ht", harpoon_telescope, { desc = "Telescope Harpoon" })
-    for i = 1, 9 do
-      vim.keymap.set("n", "<leader>h" .. i, function() harpoon:list():select(i) end, { desc = "Harpoon file " .. i })
-    end
-  end,
+		-- Keybindings voor Harpoon
+		vim.keymap.set("n", "<leader>ha", function() harpoon_mark.add_file() end, { desc = "Harpoon add file" })
+		vim.keymap.set("n", "<leader>hh", function() require("telescope").extensions.harpoon.marks() end, { desc = "Telescope Harpoon" })
+
+		for i = 1, 9 do
+			vim.keymap.set("n", "<leader>" .. i, function() harpoon_ui.nav_file(i) end, { desc = "Harpoon file " .. i })
+		end
+	end,
 }
