@@ -39,7 +39,7 @@ return {
             },
 			h = {
 				name = "Harpoon",
-				a = {function() require("harpoon_mark").add_file() end, "Add file"},
+				a = {function() require("harpoon.mark").add_file() end, "Add file"},
 				h = {function() require("telescope").extensions.harpoon.marks() end, "Open harpoon"},
 			},
         },
