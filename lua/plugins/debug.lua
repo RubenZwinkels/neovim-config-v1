@@ -7,15 +7,15 @@ return {
     "jay-babu/mason-nvim-dap.nvim",
   },
   config = function()
-    local dap = require("dap")
-    local dapui = require("dapui")
-    local mason_dap = require("mason-nvim-dap")
+    local dap = require "dap"
+    local dapui = require "dapui"
+    local mason_dap = require "mason-nvim-dap"
 
     -- Mason DAP automatisch installeren
-    mason_dap.setup({
+    mason_dap.setup {
       ensure_installed = { "codelldb" },
       automatic_installation = true,
-    })
+    }
 
     -- DAP UI open/close automatisch
     dap.listeners.before.attach.dapui_config = function() dapui.open() end
@@ -26,7 +26,7 @@ return {
     -- C/C++ Debug Adapter Configuratie
     dap.adapters.lldb = {
       type = "executable",
-      command = vim.fn.stdpath("data") .. "/mason/bin/codelldb", -- Mason pad
+      command = vim.fn.stdpath "data" .. "/mason/bin/codelldb", -- Mason pad
       name = "lldb",
     }
 
@@ -35,9 +35,7 @@ return {
         name = "Launch file",
         type = "lldb",
         request = "launch",
-        program = function()
-          return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file")
-        end,
+        program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
         cwd = "${workspaceFolder}",
         stopOnEntry = false,
         args = {},
@@ -59,7 +57,7 @@ return {
     vim.keymap.set({ "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end)
 
     -- Debugging stoppen
-    vim.keymap.set("n", "<leader>dq", function() 
+    vim.keymap.set("n", "<leader>dq", function()
       dap.terminate()
       dapui.close()
     end)
