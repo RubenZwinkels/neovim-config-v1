@@ -36,9 +36,15 @@ return {
                 l = { function() dap.run_last() end, "Run Last" },
                 h = { function() require("dap.ui.widgets").hover() end, "Hover Debug Info" },
 								q = {	function() dap.terminate() end, "Quit"	},
-            }
-        }, { prefix = "<leader>" })
+            },
+			h = {
+				name = "Harpoon",
+				a = {function() require("harpoon_mark").add_file() end, "Add file"},
+				h = {function() require("telescope").extensions.harpoon.marks() end, "Open harpoon"},
+			},
+        },
 
+			{ prefix = "<leader>" })
         wk.register {
             ["<C-.>"] = { vim.lsp.buf.code_action, "Code Actions" },
         }
