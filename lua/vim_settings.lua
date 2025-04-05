@@ -27,3 +27,4 @@ vim.keymap.set("n", "<C-S-->", "<cmd>resize -10<CR>", { noremap = true, silent =
 
 -- vaste macros
 vim.cmd('let @a = "gg0VGy"') --yank all
+vim.cmd('let @d = "gg0VGd"') --delete all
