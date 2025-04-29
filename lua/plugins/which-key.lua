@@ -18,6 +18,8 @@ return {
                 name = "Telescope",
                 f = { require("telescope.builtin").find_files, "Find Files" },
                 n = { require("telescope.builtin").find_files, "FF NeoVim config" },
+                g = { require("telescope.builtin").live_grep, "Live grep" },
+                 h = { require("telescope.builtin").help_tags, "FF help pages" },
             },
             g = {
                 name = "Git",

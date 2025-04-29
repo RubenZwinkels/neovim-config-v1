@@ -25,6 +25,7 @@ return {
                 builtin.find_files { cwd = vim.fn.stdpath("config") }
             end)
             vim.keymap.set("n", "<leader>th", builtin.help_tags, {})
+						vim.keymap.set("n", "<leader>tg", builtin.live_grep, {})
 
             -- Voeg delete functionaliteit toe aan Telescope
             telescope.setup({
