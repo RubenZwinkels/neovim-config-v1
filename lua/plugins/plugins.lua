@@ -1,5 +1,10 @@
 return {
 	{
+		"windwp/nvim-ts-autotag",
+		event = "InsertEnter",
+		config = function() require "windwp/nvim-ts-autotag" end,
+	},
+	{
 		"windwp/nvim-autopairs",
 		event = "InsertEnter",
 		config = function()
