@@ -31,3 +31,5 @@ vim.keymap.set("n", "<C-d>", "<C-d> zz")
 -- vaste macros
 vim.cmd('let @a = "gg0VGy"') --yank all
 vim.cmd('let @d = "gg0VGd"') --delete all
+
+vim.cmd('let @p = "G$phvgg0d"') --paste clipboard, verwijder wat oud is
