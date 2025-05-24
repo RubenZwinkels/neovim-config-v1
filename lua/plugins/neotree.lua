@@ -18,8 +18,18 @@ return {
           hide_gitignored = false, -- Laat gitignored files zien
           show_hidden_count = true,
         },
+        hijack_netrw_behavior = "disabled", -- Zorg dat het niet automatisch opent
       },
     }
-    vim.cmd "Neotree close"
+
+    -- Sluit Neo-tree bij start
+    vim.api.nvim_create_autocmd("VimEnter", {
+      callback = function()
+        local ok, neotree = pcall(require, "neo-tree.command")
+        if ok then
+          neotree.execute({ action = "close" })
+        end
+      end,
+    })
   end,
 }
