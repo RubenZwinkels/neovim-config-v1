@@ -2,7 +2,7 @@ return {
 	{
 		"windwp/nvim-ts-autotag",
 		event = "InsertEnter",
-		config = function() require "windwp/nvim-ts-autotag" end,
+		config = function() require("nvim-ts-autotag").setup() end,
 	},
 	{
 		"windwp/nvim-autopairs",
