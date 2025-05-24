@@ -19,6 +19,9 @@ vim.keymap.set("n", "<C-=>", "<cmd>vertical resize +10<CR>", { noremap = true, s
 vim.keymap.set("n", "<C-->", "<cmd>vertical resize -10<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-=>", "<cmd>resize +10<CR>", { noremap = true, silent = true })
 vim.keymap.set("n", "<C-S-->", "<cmd>resize -10<CR>", { noremap = true, silent = true })
+
+vim.keymap.set("n", "<C-u>", "<C-u> zz")
+vim.keymap.set("n", "<C-d>", "<C-d> zz")
 -- NOTE: Ensures that when exiting NeoVim, Zellij returns to normal mode
 --vim.api.nvim_create_autocmd("VimLeave", {
 --    pattern = "*",
