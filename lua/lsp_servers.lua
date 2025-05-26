@@ -8,5 +8,5 @@ return {
   "eslint",
   "html",
   "volar",
-  "omnisharp",
+  -- "omnisharp",
 }
