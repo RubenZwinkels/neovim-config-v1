@@ -5,7 +5,7 @@ return {
   {
     "CopilotC-Nvim/CopilotChat.nvim",
     dependencies = {
-      { "github/copilot.vim" },
+      { "github/copilot.vim" }, -- of zbirenbaum/copilot.lua
       { "nvim-lua/plenary.nvim", branch = "master" },
     },
     build = "make tiktoken", -- Alleen voor MacOS/Linux
@@ -16,18 +16,25 @@ return {
         close = "<Esc>",
       },
       window = {
-        layout = 'vertical',
+        layout = "vertical",
         width = 0.5,
       },
     },
-    keys = {
-      { "<leader>cc", "<cmd>CopilotChat<cr>", desc = "Copilot Chat" },
-      { "<leader>ce", "<cmd>CopilotChatExplain<cr>", desc = "Copilot Uitleg (Explain)" },
-      { "<leader>cf", "<cmd>CopilotChatFix<cr>", desc = "Copilot Fix" },
-      { "<leader>ct", "<cmd>CopilotChatTests<cr>", desc = "Copilot Genereer Tests" },
-      { "<leader>co", "<cmd>CopilotChatOptimize<cr>", desc = "Copilot Optimaliseer" },
-      { "<leader>cd", "<cmd>CopilotChatDoc<cr>", desc = "Copilot Genereer Documentatie" },
-      { "<leader>cm", "<cmd>CopilotChatCommit<cr>", desc = "Copilot Commit Message" },
-    },
+    config = function(_, opts)
+      require("CopilotChat").setup(opts) -- belangrijk voor correcte initialisatie
+
+      local map = vim.keymap.set
+      local chat_cmd = function(cmd)
+        return "<cmd>" .. cmd .. "<CR>"
+      end
+
+      map("n", "<leader>cc", chat_cmd("CopilotChat"), { desc = "Copilot Chat" })
+      map("n", "<leader>ce", chat_cmd("CopilotChatExplain"), { desc = "Copilot Uitleg" })
+      map("n", "<leader>cf", chat_cmd("CopilotChatFix"), { desc = "Copilot Fix" })
+      map("n", "<leader>ct", chat_cmd("CopilotChatTests"), { desc = "Copilot Genereer Tests" })
+      map("n", "<leader>co", chat_cmd("CopilotChatOptimize"), { desc = "Copilot Optimaliseer" })
+      map("n", "<leader>cd", chat_cmd("CopilotChatDoc"), { desc = "Copilot Documentatie" })
+      map("n", "<leader>cm", chat_cmd("CopilotChatCommit"), { desc = "Copilot Commit Message" })
+    end,
   },
 }
