@@ -1,37 +1,32 @@
 return {
   "folke/trouble.nvim",
-  opts = {}, -- laat standaard opties actief; kan later aangepast worden
+  opts = {}, -- for default options, refer to the configuration section for custom setup.
   cmd = "Trouble",
   keys = {
     {
-      "<leader>xx",
+      "<leader>lx",
       "<cmd>Trouble diagnostics toggle<cr>",
-      desc = "Toggle Trouble (workspace diagnostics)",
+      desc = "Diagnostics (Trouble)",
     },
     {
-      "<leader>xX",
+      "<leader>lX",
       "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
-      desc = "Toggle Trouble (buffer diagnostics)",
+      desc = "Buffer Diagnostics (Trouble)",
     },
     {
-      "<leader>cs",
+      "<leader>ls",
       "<cmd>Trouble symbols toggle focus=false<cr>",
-      desc = "Toggle Trouble symbols (document)",
+      desc = "Symbols (Trouble)",
     },
     {
-      "<leader>cl",
+      "<leader>ll",
       "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
-      desc = "Toggle Trouble LSP definitions/references",
+      desc = "LSP Definitions / references / ... (Trouble)",
     },
     {
-      "<leader>xL",
-      "<cmd>Trouble loclist toggle<cr>",
-      desc = "Toggle Trouble location list",
-    },
-    {
-      "<leader>xQ",
+      "<leader>lL",
       "<cmd>Trouble qflist toggle<cr>",
-      desc = "Toggle Trouble quickfix list",
+      desc = "Quickfix List (Trouble)",
     },
   },
 }
