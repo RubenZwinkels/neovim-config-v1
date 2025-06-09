@@ -1,15 +1,37 @@
 return {
   "folke/trouble.nvim",
-  dependencies = { "nvim-tree/nvim-web-devicons" },
-  cmd = "TroubleToggle",
+  opts = {}, -- laat standaard opties actief; kan later aangepast worden
+  cmd = "Trouble",
   keys = {
-    { "<leader>lx", "<cmd>TroubleToggle document_diagnostics<cr>", desc = "Document Diagnostics" },
-    { "<leader>lX", "<cmd>TroubleToggle workspace_diagnostics<cr>", desc = "Workspace Diagnostics" },
-    { "<leader>lq", "<cmd>TroubleToggle quickfix<cr>", desc = "Quickfix" },
-    { "<leader>ll", "<cmd>TroubleToggle loclist<cr>", desc = "Location List" },
-    { "<leader>lr", "<cmd>TroubleToggle lsp_references<cr>", desc = "LSP References" },
-  },
-  opts = {
-    use_diagnostic_signs = true,
+    {
+      "<leader>xx",
+      "<cmd>Trouble diagnostics toggle<cr>",
+      desc = "Toggle Trouble (workspace diagnostics)",
+    },
+    {
+      "<leader>xX",
+      "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+      desc = "Toggle Trouble (buffer diagnostics)",
+    },
+    {
+      "<leader>cs",
+      "<cmd>Trouble symbols toggle focus=false<cr>",
+      desc = "Toggle Trouble symbols (document)",
+    },
+    {
+      "<leader>cl",
+      "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+      desc = "Toggle Trouble LSP definitions/references",
+    },
+    {
+      "<leader>xL",
+      "<cmd>Trouble loclist toggle<cr>",
+      desc = "Toggle Trouble location list",
+    },
+    {
+      "<leader>xQ",
+      "<cmd>Trouble qflist toggle<cr>",
+      desc = "Toggle Trouble quickfix list",
+    },
   },
 }
