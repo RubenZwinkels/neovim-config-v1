@@ -7,6 +7,7 @@ return {
 	"ts_ls",
 	"eslint",
 	"html",
-	"vue_ls",
+	-- "vue_ls",
+	-- "volar",
 	-- "omnisharp",
 }

@@ -11,38 +11,33 @@ return {
     local dapui = require "dapui"
     local mason_dap = require "mason-nvim-dap"
 
-    -- Mason DAP automatisch installeren
+    -- Mason DAP setup
     mason_dap.setup {
-      ensure_installed = { "codelldb" },
-      automatic_installation = true,
+      ensure_installed = {}, -- je gebruikt netcoredbg handmatig
+      automatic_installation = false,
     }
 
-    -- DAP UI open/close automatisch
+    -- UI automatisch openen/sluiten
     dap.listeners.before.attach.dapui_config = function() dapui.open() end
     dap.listeners.before.launch.dapui_config = function() dapui.open() end
     dap.listeners.before.event_terminated.dapui_config = function() dapui.close() end
     dap.listeners.before.event_exited.dapui_config = function() dapui.close() end
 
-    -- C/C++ Debug Adapter Configuratie
-    dap.adapters.lldb = {
+    -- C# adapter configuratie met netcoredbg
+    dap.adapters.coreclr = {
       type = "executable",
-      command = vim.fn.stdpath "data" .. "/mason/bin/codelldb", -- Mason pad
-      name = "lldb",
+      command = vim.fn.expand "~/tools/netcoredbg/netcoredbg",
+      args = { "--interpreter=vscode" },
     }
 
-    dap.configurations.c = {
+    dap.configurations.cs = {
       {
-        name = "Launch file",
-        type = "lldb",
+        type = "coreclr",
+        name = "Launch - netcoredbg",
         request = "launch",
-        program = function() return vim.fn.input("Path to executable: ", vim.fn.getcwd() .. "/", "file") end,
-        cwd = "${workspaceFolder}",
-        stopOnEntry = false,
-        args = {},
+        program = function() return vim.fn.input("Path to DLL: ", vim.fn.getcwd() .. "/bin/Debug/net9.0/", "file") end,
       },
     }
-
-    dap.configurations.cpp = dap.configurations.c
 
     -- Keybindings
     vim.keymap.set("n", "<leader>dc", function() dap.continue() end)
@@ -56,10 +51,13 @@ return {
     vim.keymap.set("n", "<leader>dl", function() dap.run_last() end)
     vim.keymap.set({ "n", "v" }, "<leader>dh", function() require("dap.ui.widgets").hover() end)
 
-    -- Debugging stoppen
+    -- Stop debuggen
     vim.keymap.set("n", "<leader>dq", function()
       dap.terminate()
       dapui.close()
     end)
+
+    -- DAP UI setup
+    require("dapui").setup()
   end,
 }
