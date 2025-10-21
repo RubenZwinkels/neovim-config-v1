@@ -7,7 +7,7 @@ return {
 	"ts_ls",
 	"eslint",
 	"html",
-	-- "vue_ls",
-	-- "volar",
-	-- "omnisharp",
+	"omnisharp",
+	"yamlls",
+	-- "copilot-language-server",
 }

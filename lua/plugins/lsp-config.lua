@@ -20,17 +20,6 @@ return {
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
       local lspconfig = require "lspconfig"
       local servers = require "lsp_servers"
-      local omnisharp_bin = "/Users/rubenzwinkels/.omnisharp/OmniSharp"
-
-      lspconfig.omnisharp.setup {
-        cmd = {
-          omnisharp_bin,
-          "--languageserver",
-          "--hostPID",
-          tostring(vim.fn.getpid()),
-        },
-        capabilities = capabilities,
-      }
 
       for _, server in ipairs(servers) do
         lspconfig[server].setup {

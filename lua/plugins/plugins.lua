@@ -1,45 +1,45 @@
 return {
-	{
-		"windwp/nvim-ts-autotag",
-		event = "InsertEnter",
-		config = function() require("nvim-ts-autotag").setup() end,
-	},
-	{
-		"windwp/nvim-autopairs",
-		event = "InsertEnter",
-		config = function()
-			require("nvim-autopairs").setup {
-				fast_wrap = {
-					map = "<C-e>", -- standaardtoets, je kunt dit aanpassen
-					chars = { "{", "[", "(", '"', "'" },
-					pattern = [=[[%'%"%>%]%)%}%,]]=],
-					offset = 0,
-					end_key = "$",
-					keys = "qwertyuiopzxcvbnmasdfghjkl",
-					check_comma = true,
-					highlight = "PmenuSel",
-					highlight_grey = "LineNr",
-				},
-			}
-		end,
-	},
-	{
-		"rcarriga/nvim-notify",
-		config = function()
-			local notify = require "notify"
+  {
+    "windwp/nvim-ts-autotag",
+    event = "InsertEnter",
+    config = function() require("nvim-ts-autotag").setup() end,
+  },
+  {
+    "windwp/nvim-autopairs",
+    event = "InsertEnter",
+    config = function()
+      require("nvim-autopairs").setup {
+        fast_wrap = {
+          map = "<C-e>", -- standaardtoets, je kunt dit aanpassen
+          chars = { "{", "[", "(", '"', "'" },
+          pattern = [=[[%'%"%>%]%)%}%,]]=],
+          offset = 0,
+          end_key = "$",
+          keys = "qwertyuiopzxcvbnmasdfghjkl",
+          check_comma = true,
+          highlight = "PmenuSel",
+          highlight_grey = "LineNr",
+        },
+      }
+    end,
+  },
+  {
+    "rcarriga/nvim-notify",
+    config = function()
+      local notify = require "notify"
 
-			-- Basisinstellingen
-			notify.setup {
-				stages = "slide",              -- of "slide", "fade_in_slide_out", etc.
-				timeout = 10000,
-				background_colour = "#1e1e2e", -- transparante achtergrond
-				render = "default",            -- andere optie: "compact", "minimal"
-			}
+      -- Basisinstellingen
+      notify.setup {
+        stages = "slide", -- of "slide", "fade_in_slide_out", etc.
+        timeout = 10000,
+        background_colour = "#1e1e2e", -- transparante achtergrond
+        render = "default", -- andere optie: "compact", "minimal"
+      }
 
-			-- Maak notify de standaard notificatiefunctie
-			vim.notify = notify
+      -- Maak notify de standaard notificatiefunctie
+      vim.notify = notify
 
-			vim.cmd [[
+      vim.cmd [[
   highlight NotifyINFOBorder guifg=#7aa2f7 gui=bold
   highlight NotifyINFOTitle guifg=#7aa2f7 gui=bold
   highlight NotifyINFOIcon guifg=#7aa2f7 gui=bold
@@ -60,6 +60,10 @@ return {
   highlight NotifyTRACETitle guifg=#bb9af7 gui=bold
   highlight NotifyTRACEIcon guifg=#bb9af7 gui=bold
 ]]
-		end,
-	},
+    end,
+    {
+      "gpanders/editorconfig.nvim",
+      lazy = false,
+    },
+  },
 }
