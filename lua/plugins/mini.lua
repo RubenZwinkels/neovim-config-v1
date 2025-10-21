@@ -4,5 +4,6 @@ return {
   config = function()
     -- Activeer alleen de modules die je nodig hebt
     require("mini.icons").setup() -- Als deze functie niet bestaat, kan dat de fout zijn
+		require("mini.indentscope").setup()
   end,
 }
