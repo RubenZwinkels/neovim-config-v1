@@ -66,4 +66,18 @@ return {
       lazy = false,
     },
   },
+  -- kleuren/ colors inline
+  {
+    "norcalli/nvim-colorizer.lua",
+    config = function()
+      require("colorizer").setup({
+        "*", -- alle buffers
+        css = { rgb_fn = true }, -- voor CSS functies
+        html = { names = true }, -- kleurennamen in HTML
+      }, {
+        RRGGBBAA = true, -- hex met alpha
+        RGB = true,
+      })
+    end,
+  },
 }
