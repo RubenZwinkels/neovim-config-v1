@@ -33,3 +33,7 @@ vim.cmd('let @a = "gg0VGy"') --yank all
 vim.cmd('let @d = "gg0VGd"') --delete all
 
 vim.cmd('let @p = "G$phvgg0d"') --paste clipboard, verwijder wat oud is
+
+vim.opt.smartindent = false
+vim.opt.autoindent = false
+vim.opt.cindent = false

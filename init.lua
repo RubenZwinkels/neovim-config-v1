@@ -23,6 +23,21 @@ vim.opt.rtp:prepend(lazypath)
 -- This is also a good place to setup other settings (vim.opt)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+-- .editorconfig fixen
+vim.api.nvim_create_autocmd("BufReadPost", {
+  callback = function()
+    vim.cmd("silent! EditorConfigReload")
+  end,
+})
+-- algemene instellingen voor C#
+vim.cmd [[
+  autocmd FileType cs setlocal tabstop=4
+  autocmd FileType cs setlocal shiftwidth=4
+  autocmd FileType cs setlocal softtabstop=4
+  autocmd FileType cs setlocal expandtab
+  autocmd FileType cs setlocal autoindent
+  autocmd FileType cs setlocal smartindent
+]]
 
 -- Setup lazy.nvim
 require("lazy").setup("plugins")
