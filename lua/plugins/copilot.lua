@@ -9,6 +9,9 @@ return {
   },
   {
     "folke/sidekick.nvim",
+		config = function()
+			require("sidekick.nes").disable()
+		end,
     opts = {
       cli = {
         default = "copilot",

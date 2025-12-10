@@ -57,16 +57,6 @@ return {
 				r = { function() require("flash").remote() end, "Remote Flash" },
 				s = { function() require("flash").treesitter_search() end, "Treesitter Search" },
 			},
-			c = {
-				name = "CopilotChat",
-				c = { "<cmd>CopilotChat<CR>", "Open Chat" },
-				e = { "<cmd>CopilotChatExplain<CR>", "Uitleg Code (Explain)" },
-				f = { "<cmd>CopilotChatFix<CR>", "Fix Code" },
-				t = { "<cmd>CopilotChatTests<CR>", "Genereer Tests" },
-				o = { "<cmd>CopilotChatOptimize<CR>", "Optimaliseer Code" },
-				d = { "<cmd>CopilotChatDoc<CR>", "Genereer Documentatie" },
-				m = { "<cmd>CopilotChatCommit<CR>", "Commit Message" },
-			},
 			s = {
 				name = "Sidekick",
 				["<tab>"] = {
