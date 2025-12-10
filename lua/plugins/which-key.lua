@@ -80,6 +80,10 @@ return {
 				p = { function() require("sidekick.cli").prompt() end, "Prompt", mode = { "n", "x" } },
 				c = { function() require("sidekick.cliy").toggle { name = "claude", focus = true } end, "Toggle Claude" },
 			},
+			g = {
+				name = "Gamification",
+				g =	{ function() require("triforce").show_profile() end, "Show Profile" },
+			}
 		}, { prefix = "<leader>" })
 		wk.register {
 			["<C-.>::"] = { vim.lsp.buf.code_action, "Code Actions" },
