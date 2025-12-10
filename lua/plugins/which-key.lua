@@ -13,12 +13,15 @@ return {
 				r = { vim.lsp.buf.rename, "Rename Symbol" },
 				f = { vim.lsp.buf.format, "Format Current Buffer" },
 				F = { function() vim.lsp.buf.format { async = true, range = nil } end, "Format Entire Project" },
+				
 				c = { "gcc", "Comment Line" },
 				x = { "<cmd>Trouble diagnostics toggle<cr>", "Diagnostics (Trouble)" },
 				X = { "<cmd>Trouble diagnostics toggle filter.buf=0<cr>", "Buffer Diagnostics (Trouble)" },
 				s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols (Trouble)" },
 				l = { "<cmd>Trouble lsp toggle focus=false win.position=right<cr>", "LSP Definitions/References (Trouble)" },
 				L = { "<cmd>Trouble qflist toggle<cr>", "Quickfix List (Trouble)" },
+				p = {	vim.lsp.buf.signature_help, "Signature Help"},
+				i = { vim.lsp.buf.implementation, "Go to implementation"}
 			},
 			t = {
 				name = "Telescope",

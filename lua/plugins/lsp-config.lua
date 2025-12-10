@@ -32,6 +32,9 @@ return {
       vim.keymap.set("n", "<leader>ld", vim.lsp.buf.definition, {})
       vim.keymap.set({ "n", "v" }, "<C-.>", vim.lsp.buf.code_action, {})
       vim.keymap.set("n", "<leader>lr", vim.lsp.buf.rename, {})
+			vim.keymap.set("n", "<leader>lp", vim.lsp.buf.signature_help, {})
+			vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, { desc = "LSP Signature Help" })
+			vim.keymap.set("n", "<leader>li", vim.lsp.buf.implementation, {})
       vim.api.nvim_set_keymap("n", "<leader>lc", "gcc", { noremap = false, silent = true })
     end,
   },
