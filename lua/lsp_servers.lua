@@ -9,5 +9,6 @@ return {
 	"html",
 	"omnisharp",
 	"yamlls",
+	"gopls",   -- Go
 	-- "copilot-language-server",
 }

@@ -31,8 +31,21 @@ return {
 				h = { require("telescope.builtin").help_tags, "FF help pages" },
 			},
 			g = {
-				name = "Git",
+				name = "Go / Git",
+				-- Git
 				d = { ":Gitsigns preview_hunk<CR>", "Show git diff" },
+				-- Go (file-specific via ftplugin)
+				a = { "<cmd>GoAddTag<CR>", "Add struct tags" },
+				r = { "<cmd>GoRemoveTag<CR>", "Remove struct tags" },
+				i = { "<cmd>GoImports<CR>", "Organize imports" },
+				v = { "<cmd>GoVet<CR>", "Run go vet" },
+				t = { "<cmd>GoTest<CR>", "Run tests" },
+				T = { "<cmd>GoTestFile<CR>", "Run file tests" },
+				c = { "<cmd>GoCoverageToggle<CR>", "Coverage toggle" },
+				b = { "<cmd>GoBuild<CR>", "Build" },
+				ts = { "<cmd>GoTagsModify split<CR>", "Add split tags" },
+				tj = { "<cmd>GoTagsModify json<CR>", "Add json tags" },
+				ty = { "<cmd>GoTagsModify yaml<CR>", "Add yaml tags" },
 			},
 			d = {
 				name = "Debugger",
@@ -83,7 +96,7 @@ return {
 				p = { function() require("sidekick.cli").prompt() end, "Prompt", mode = { "n", "x" } },
 				c = { function() require("sidekick.cliy").toggle { name = "claude", focus = true } end, "Toggle Claude" },
 			},
-			g = {
+			gm = {
 				name = "Gamification",
 				g =	{ function() require("triforce").show_profile() end, "Show Profile" },
 			}
@@ -93,3 +106,4 @@ return {
 		}
 	end,
 }
+
